@@ -1,12 +1,15 @@
 import { Client, GatewayIntentBits, Partials } from 'discord.js';
+import dotenv from 'dotenv';
 
 import { OKOROK_BOT_ID, BOT_PREFIX } from './config.js';
-import { BOT_TOKEN } from './token.js';
 import { invitation } from './commands/invitation.js';
 import { anek } from './commands/anek.js';
+import { createInviteReactions } from './commands/createInviteReactions.js';
 
 // const invitingChannelId = 849611337574121472;
 // const invitingChannel = Client.channels.cache.get(invitingChannelId);
+
+dotenv.config();
 
 const client = new Client({
   intents: [
@@ -26,20 +29,7 @@ client.on('messageCreate', (message) => {
   const reactToMessage = isTalkingToMe || isBotCommand;
 
   if (message.author.id === OKOROK_BOT_ID) {
-    let hadReactions = false;
-    const mentions = content.match(/(?!=<@)(\d+)(?=>)/g);
-    mentions?.forEach((mention) => {
-      const gameToMention = gamesByRoleIds[mention];
-      if (!gameToMention) {
-        return;
-      }
-      message.react(gameToMention.emoji);
-      hadReactions = true;
-    });
-
-    if (hadReactions) {
-      message.react('❌')
-    }
+    createInviteReactions(message);
   }
 
   if (!reactToMessage || message.author.bot) {
@@ -54,7 +44,7 @@ client.on('messageCreate', (message) => {
   }
 
   if (commandToPerform.match(/пригл(аси(ть)?|ашаю|ашай|ос)/)) {
-    invitation(message);
+    invitation(message, messageWords);
   }
 });
 
@@ -62,4 +52,4 @@ client.on('ready', () => {
   console.log('Ready!');
 });
 
-client.login(BOT_TOKEN);
+client.login(process.env.BOT_TOKEN);
