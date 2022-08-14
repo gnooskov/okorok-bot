@@ -1,7 +1,7 @@
 import { gamesInfo } from '../gamesInfo.js';
 import { gamesParsing } from '../gamesParsing.js';
 
-export const invitation = (message) => {
+export const invitation = (message, messageWords) => {
   const gamesMentioned = messageWords.reduce((acc, item) => {
     if (gamesParsing[item]) {
       acc.push(gamesParsing[item])
