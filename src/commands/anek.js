@@ -7,13 +7,11 @@ export const anek = (message) => {
     message.react('⛔');
   };
 
-  message.react('👌');
-
   axios.get('https://www.anekdot.ru/random/anekdot/')
     .then(res => {
       if (!res?.data) {
         if (message) {
-          message.channel.send('Сервер не прислал даунский анек');
+          message.channel.send('Ошибка: сервер не прислал тупой анек');
         }
         return;
       }
@@ -42,8 +40,11 @@ export const anek = (message) => {
           const ratingArray = ratingData.split(';');
           const ratingValue = parseInt(ratingArray[0]);
           if (ratingValue > bestRating) {
-            bestRating = ratingValue;
-            bestText = anek.querySelector('.text').innerHTML;
+            const html = anek.querySelector('.text').innerHTML;
+            if (html.length < 2000) { // discord's message limit
+              bestRating = ratingValue;
+              bestText = html;
+            }
           }
         } catch (e) {
           onError();
@@ -60,6 +61,6 @@ export const anek = (message) => {
     .catch((e) => {
       onError();
       console.log('catch was', e);
-      // message.channel.send('Не удалось получить даунский анек');
+      // message.channel.send('Ошибка: не удалось получить тупой анек');
     })
 }
