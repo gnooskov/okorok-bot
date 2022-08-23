@@ -1,5 +1,6 @@
 import axios from 'axios';
 import jsdom from 'jsdom';
+import { decode } from 'html-entities';
 
 export const anek = (message) => {
   const onError = () => {
@@ -53,6 +54,7 @@ export const anek = (message) => {
       });
 
       if (message && bestText) {
+        bestText = decode(bestText);
         bestText = bestText.replaceAll('<br>', '\n');
         bestText = bestText.replace(/<[^>*]>/g, ''); // strip other tags
         message.channel.send(bestText);
