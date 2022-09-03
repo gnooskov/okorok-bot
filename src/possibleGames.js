@@ -1,6 +1,6 @@
-import { GAMES } from './gamesInfo.js';
+import { GAMES } from "./gamesInfo";
 
-export const gamesParsing = {
+export const possibleGames = {
   'кол': GAMES.COLONIZERS,
   'кал': GAMES.COLONIZERS,
   'коло': GAMES.COLONIZERS,
@@ -8,26 +8,31 @@ export const gamesParsing = {
   'колонист': GAMES.COLONIZERS,
   'колонисты': GAMES.COLONIZERS,
   'колонизаторы': GAMES.COLONIZERS,
+
   'код': GAMES.CODENAMES,
   'коды': GAMES.CODENAMES,
   'коднэмс': GAMES.CODENAMES,
   'коднэймс': GAMES.CODENAMES,
   'коднеймс': GAMES.CODENAMES,
+
   'ц': GAMES.CITADELS,
   'цит': GAMES.CITADELS,
   'циты': GAMES.CITADELS,
   'цыты': GAMES.CITADELS,
   'цитадель': GAMES.CITADELS,
   'цитадели': GAMES.CITADELS,
+
   'р': GAMES.PAINTING,
   'рис': GAMES.PAINTING,
   'рисовач': GAMES.PAINTING,
   'рисовать': GAMES.PAINTING,
   'рисовалка': GAMES.PAINTING,
+
   'х': GAMES.HANABI,
   'хнб': GAMES.HANABI,
   'ханаби': GAMES.HANABI,
   'ханабич': GAMES.HANABI,
+
   'г': GAMES.GNOMES,
   'в': GAMES.GNOMES,
   'гв': GAMES.GNOMES,
@@ -38,6 +43,7 @@ export const gamesParsing = {
   'вредители': GAMES.GNOMES,
   'гномы вредители': GAMES.GNOMES,
   'гномы-вредители': GAMES.GNOMES,
+
   'тикет': GAMES.TICKET,
   'тикит': GAMES.TICKET,
   'ticket': GAMES.TICKET,
@@ -46,8 +52,19 @@ export const gamesParsing = {
   'поезда': GAMES.TICKET,
   'паровозы': GAMES.TICKET,
   'вагоны': GAMES.TICKET,
+
   'эрудит': GAMES.ERUDIT,
 
-  'тест': GAMES.TEST,
-  'test': GAMES.TEST,
+  'among': GAMES.AMONG_US,
+  'amongus': GAMES.AMONG_US,
+  'among us': GAMES.AMONG_US,
+  'амонг': GAMES.AMONG_US,
+  'эмонг': GAMES.AMONG_US,
+  'амогус': GAMES.AMONG_US,
+  'amonug': GAMES.AMONG_US,
+  'эмонг ас': GAMES.AMONG_US,
+  'эмонгас': GAMES.AMONG_US,
+  'амонг ас': GAMES.AMONG_US,
+  'амонгас': GAMES.AMONG_US,
+  'амогусь': GAMES.AMONG_US,
 };

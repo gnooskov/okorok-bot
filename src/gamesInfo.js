@@ -9,7 +9,6 @@ export const GAMES = {
   AMONG_US: 'among_us',
   ERUDIT: 'erudit',
   HAT: 'hat',
-  TEST: 'test',
 };
 
 export const gamesInfo = {
