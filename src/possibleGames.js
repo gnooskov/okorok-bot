@@ -1,4 +1,4 @@
-import { GAMES } from "./gamesInfo";
+import { GAMES } from "./gamesInfo.js";
 
 export const possibleGames = {
   'кол': GAMES.COLONIZERS,
