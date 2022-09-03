@@ -39,7 +39,7 @@ client.on('messageCreate', (message) => {
   const messageWords = content.split(' ');
   const commandToPerform = messageWords[0].slice(1).toLowerCase();
 
-  if (commandToPerform.match(/(анек(дот)?|fytr|anek)/)) {
+  if (commandToPerform.match(/(анек(дот)?|fytr|ane(k(dot)?|cdot(e)?)|aneque|)/)) {
     anek(message);
   }
 
